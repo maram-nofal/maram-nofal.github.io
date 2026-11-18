@@ -395,6 +395,9 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
     ticking=false;
     const se=document.scrollingElement; const max=se.scrollHeight-innerHeight;
     prog.style.setProperty('--p', max>0 ? se.scrollTop/max : 0);
+    // people counter (scroll-linked, works for everyone)
+    const gr=grow.getBoundingClientRect(); const gs=Math.max(1, grow.offsetHeight-innerHeight);
+    if(gr.top<innerHeight && gr.bottom>0){ const q=reduce ? clamp((innerHeight-gr.top)/(innerHeight+grow.offsetHeight*.5),0,1) : clamp(-gr.top/(gs*.8),0,1); setCount(Math.round(20+60*q)); }
     if(reduce) return;
     // chapters
     const hr=hs.getBoundingClientRect(); const span=hs.offsetHeight-innerHeight;
@@ -404,12 +407,13 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
     const idx=Math.min(4,Math.round(p*4));
     dotEls.forEach((d,i)=>d.classList.toggle('on',i<=idx));
     chapName.textContent='الفصل '+(idx+1)+' من 5';
-    // people counter
-    const gr=grow.getBoundingClientRect(); const gs=grow.offsetHeight-innerHeight;
-    if(gr.top<innerHeight && gr.bottom>0){ const q=clamp(-gr.top/(gs*.8),0,1); setCount(Math.round(20+60*q)); }
   }
   addEventListener('scroll',()=>{ if(!ticking){ticking=true;requestAnimationFrame(frame);} },{passive:true});
   addEventListener('resize',frame); frame();
+  // hero stat count-up (20 -> 80)
+  const heroNum=document.querySelector('[data-count]');
+  if(heroNum && !reduce){ const t0=performance.now(), dur=1400;
+    (function step(t){ const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3); heroNum.textContent=Math.round(20+60*e); if(k<1) requestAnimationFrame(step); })(t0); }
 
   // ambient glow blobs
   const c=document.getElementById('glow'), g=c.getContext('2d');
