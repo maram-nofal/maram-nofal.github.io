@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="رحلة مرام نوفل مع برنامج أنا جوال: من مشاركة في الدفعة 12 إلى مدربة Jawwal Pay وقائدة فريق.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="مرام نوفل | رحلتي مع أنا جوال">
+<meta property="og:description" content="من مشاركة في الدفعة 12 إلى مدربة Jawwal Pay وقائدة فريق.">
+<meta property="og:image" content="https://maram-nofal.github.io/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://maram-nofal.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png"><link rel="apple-touch-icon" href="img/icon.png">
+<meta name="theme-color" content="#06170F">
+<title>مرام نوفل | رحلتي مع أنا جوال</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<style>
+/* One visual world: deep forest night, Jawwal green as light, lime as the marker. Story scrolls sideways through five chapters. */
+:root{
+  --night:#06170F; --forest:#0C2A1C; --card:#123826; --green:#7BC943; --lime:#D9F36E; --mist:#E9F2E4; --dim:#9DB5A6;
+  --display:"Lalezar","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--mist);font-family:var(--body);font-size:17px;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;margin:0;text-wrap:balance}
+a{color:var(--lime)}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+
+/* grain + glow */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+#glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+.progress{position:fixed;top:0;right:0;height:4px;width:100%;transform-origin:right;transform:scaleX(var(--p,0));background:linear-gradient(to left,var(--green),var(--lime));z-index:60}
+
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--night);background:var(--green);padding:6px 14px;border-radius:999px}
+.mark{position:relative;white-space:nowrap;color:var(--night);padding:0 .12em}
+.mark::before{content:"";position:absolute;inset:.12em -.08em .02em;background:var(--lime);z-index:-1;border-radius:6px;transform-origin:right;animation:sweep .9s .5s cubic-bezier(.7,0,.2,1) both}
+@keyframes sweep{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* HERO */
+.hero{padding:70px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(64px,11vw,150px);background:linear-gradient(180deg,#fff 30%,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;margin:18px 0 8px;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero .tag{font-family:var(--display);font-size:clamp(28px,4.2vw,50px);line-height:1.25;isolation:isolate}
+.hero p.lead{color:var(--dim);max-width:52ch;font-size:18px;margin:18px 0 0}
+@keyframes rise{from{transform:translateY(30px);opacity:.2}to{transform:none;opacity:1}}
+.photo3d{perspective:900px}
+.photo3d .card{position:relative;border-radius:28px;overflow:hidden;transform:rotateY(var(--ry,-8deg)) rotateX(var(--rx,4deg)) rotate(-2deg);transition:transform .25s ease-out;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(123,201,67,.35),0 0 80px -10px rgba(123,201,67,.45)}
+.photo3d img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.photo3d .badge{position:absolute;bottom:16px;right:16px;left:16px;background:rgba(6,23,15,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(217,243,110,.25);border-radius:18px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px}
+.photo3d .badge b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--lime)}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid rgba(123,201,67,.25);background:var(--forest);padding:16px 0;transform:rotate(-1.5deg);margin:40px -10px}
+.marquee .row{display:flex;gap:40px;width:max-content;animation:slide 28s linear infinite}
+.marquee span{font-family:var(--display);font-size:clamp(26px,4vw,44px);white-space:nowrap;color:var(--mist)}
+.marquee span i{font-style:normal;color:var(--green);margin-inline-start:40px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px auto 0}
+.stat{background:linear-gradient(160deg,var(--card),var(--forest));border:1px solid rgba(123,201,67,.18);border-radius:22px;padding:22px}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(40px,5vw,60px);color:var(--lime);line-height:1}
+.stat span{color:var(--dim);font-size:15px}
+
+/* section heads */
+.head{padding:110px 0 30px}
+.head h2{font-size:clamp(44px,7vw,92px);margin-top:16px}
+.head p{color:var(--dim);max-width:56ch;margin:12px 0 0}
+
+/* horizontal chapters */
+.hs{position:relative;height:520vh}
+.hs .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hs .label{width:min(1180px,100% - 40px);margin:0 auto 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--dim);font-size:14px}
+.hs .dots{display:flex;gap:6px}
+.hs .dots i{width:26px;height:4px;border-radius:4px;background:rgba(233,242,228,.18);transition:background .3s}
+.hs .dots i.on{background:var(--green)}
+.track{display:flex;gap:28px;padding-inline:max(20px,calc((100vw - 1180px)/2));will-change:transform}
+.chap{flex:0 0 min(1040px,86vw);height:min(560px,74svh);border-radius:32px;background:var(--forest);border:1px solid rgba(123,201,67,.2);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;position:relative}
+.chap .txt{padding:clamp(22px,3.5vw,44px);display:flex;flex-direction:column;gap:12px;overflow:auto}
+.chap .num{position:absolute;left:24px;top:6px;font-family:var(--display);font-size:clamp(90px,14vw,190px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(217,243,110,.35);pointer-events:none;z-index:2}
+.chap h3{font-size:clamp(32px,4vw,54px);color:#fff}
+.chap .k{color:var(--green);font-weight:700;font-size:14px;letter-spacing:.02em}
+.chap ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.chap li{position:relative;padding-inline-start:22px;color:var(--mist);font-size:16px;line-height:1.55}
+.chap li::before{content:"";position:absolute;right:0;top:.55em;width:9px;height:9px;border-radius:3px;background:var(--green);transform:rotate(45deg)}
+.chap .pic{position:relative}
+.chap .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chap .pic .mini{position:absolute;width:38%;aspect-ratio:3/4;inset:auto auto 18px 18px;border-radius:18px;overflow:hidden;border:3px solid var(--night);transform:rotate(4deg);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.chap .pic .mini img{position:static;height:100%}
+.callout{margin-top:auto;background:var(--lime);color:var(--night);border-radius:18px;padding:12px 16px;display:flex;gap:12px;align-items:center}
+.callout b{font-family:var(--display);font-weight:400;font-size:30px;line-height:1}
+.callout span{font-weight:700;font-size:15px;line-height:1.4}
+
+/* 20 -> 80 */
+.grow{position:relative;height:260vh}
+.grow .sticky{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden}
+.grow .in{width:min(1100px,100% - 40px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.grow .count{font-family:var(--display);font-size:clamp(130px,22vw,280px);line-height:.9;color:var(--lime);font-variant-numeric:tabular-nums;text-shadow:0 0 60px rgba(217,243,110,.35)}
+.grow h2{font-size:clamp(36px,5vw,64px)}
+.grow p{color:var(--dim);margin:10px 0 0;max-width:44ch}
+.people{display:grid;grid-template-columns:repeat(10,1fr);gap:10px}
+.people i{aspect-ratio:1;border-radius:50%;background:rgba(233,242,228,.12);transition:background .25s,box-shadow .25s,transform .25s}
+.people i.on{background:var(--green);box-shadow:0 0 14px rgba(123,201,67,.8);transform:scale(1.08)}
+.people i.seed{background:var(--mist)}
+
+/* gallery marquee */
+.gal{overflow:hidden;padding:30px 0 10px}
+.gal .row{display:flex;gap:18px;width:max-content;animation:slide 40s linear infinite}
+.gal:hover .row{animation-play-state:paused}
+.gal figure{margin:0;width:260px;flex:none;border-radius:22px;overflow:hidden;transform:rotate(var(--r));transition:transform .3s;border:1px solid rgba(123,201,67,.25)}
+.gal figure:hover{transform:rotate(0) scale(1.04)}
+.gal img{aspect-ratio:3/4;object-fit:cover;width:100%}
+
+/* bento with spotlight */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tile{--x:50%;--y:50%;position:relative;border-radius:26px;padding:28px;background:radial-gradient(420px circle at var(--x) var(--y),rgba(123,201,67,.22),transparent 45%),var(--forest);border:1px solid rgba(123,201,67,.2);overflow:hidden;min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.tile h3{font-size:clamp(28px,3vw,40px);color:#fff}
+.tile p{margin:0;color:var(--dim)}
+.tile .ic{position:absolute;top:22px;right:24px;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--green);color:var(--night)}
+.tile .ic svg{width:28px;height:28px}
+.t1{grid-column:span 4}.t2{grid-column:span 2}.t3{grid-column:span 2}.t4{grid-column:span 4}
+.t1{background:radial-gradient(420px circle at var(--x) var(--y),rgba(217,243,110,.3),transparent 45%),linear-gradient(135deg,#1E5A2E,var(--forest))}
+
+/* ideas */
+.ideas{display:grid;gap:14px}
+.idea{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;padding:24px 28px;border-radius:24px;border:1px solid rgba(123,201,67,.2);background:var(--forest);transition:background .3s,transform .3s}
+.idea:hover{background:var(--card);transform:translateX(-8px)}
+.idea .n{font-family:var(--display);font-size:clamp(56px,7vw,96px);line-height:1;color:transparent;-webkit-text-stroke:2px var(--green);min-width:1.4em;transition:color .3s}
+.idea:hover .n{color:var(--green)}
+.idea h3{font-size:clamp(26px,3vw,38px);color:#fff}
+.idea p{margin:4px 0 0;color:var(--dim)}
+
+/* thanks */
+.thanks{padding:130px 0 70px;text-align:center}
+.thanks h2{font-size:clamp(90px,18vw,230px);background:linear-gradient(180deg,#fff,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.thanks .k{color:var(--green);font-weight:700;margin:6px 0 20px}
+.names{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.names span{padding:10px 20px;border-radius:999px;background:var(--forest);border:1px solid rgba(123,201,67,.3);font-weight:500}
+footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
+
+/* scroll-driven reveal (only where supported; content shows normally elsewhere) */
+@supports (animation-timeline: view()){
+  .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+  @keyframes rv{from{opacity:.15;transform:translateY(60px) scale(.96)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:30px}
+  .photo3d{max-width:420px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .chap{grid-template-columns:1fr;grid-template-rows:42% 58%;height:78svh}
+  .chap .pic{order:-1}
+  .chap .num{font-size:80px;top:auto;bottom:6px}
+  .chap h3{font-size:30px}
+  .chap li{font-size:14.5px}
+  .chap .txt{gap:8px;padding:18px 20px}
+  .callout b{font-size:24px}
+  .callout span{font-size:13.5px}
+  .grow .in{grid-template-columns:1fr;gap:20px;text-align:center}
+  .grow p{margin-inline:auto}
+  .people{gap:7px;max-width:360px;margin:0 auto}
+  .bento{grid-template-columns:1fr}
+  .t1,.t2,.t3,.t4{grid-column:auto}
+  .idea{grid-template-columns:1fr;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before{animation:none!important;transition:none!important}
+  .hs{height:auto}.hs .sticky{position:static;height:auto;padding:20px 0}
+  .track{overflow-x:auto;transform:none!important;padding-bottom:20px}
+  .grow{height:auto}.grow .sticky{position:static;height:auto;padding:60px 0}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<canvas id="glow" aria-hidden="true"></canvas>
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">برنامج أنا جوال · الموسمان 12 و13</span>
+      <h1>مرام نوفل</h1>
+      <div class="tag">من مشاركة إلى <span class="mark">قائدة فريق</span></div>
+      <p class="lead">بدأت مشاركة في الدفعة 12، ثم صرت مدربة Jawwal Pay، ثم تيم ليدر في الموسم 13. هذه رحلتي مع برنامج أنا جوال، وما تعلمته فيه عن القيادة والعمل مع الناس.</p>
+    </div>
+    <div class="photo3d" id="tilt">
+      <div class="card">
+        <img src="img/hero.jpg" alt="مرام نوفل تتحدث بالميكروفون في فعالية لأنا جوال">
+        <div class="badge"><span>المركز الأول على جامعات غزة</span><b>الدفعة 12</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap stats">
+    <div class="stat"><b>2021</b><span>سنة الانضمام للبرنامج</span></div>
+    <div class="stat"><b>الأول</b><span>المركز على مستوى جامعات غزة</span></div>
+    <div class="stat"><b data-count="80">80</b><span>عضواً في الفريق، بعد أن كان 20</span></div>
+    <div class="stat"><b>2</b><span>موسمان وشهادتان من أنا جوال</span></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="row" id="mq">
+  <span>مشاركة<i>✦</i></span><span>مدربة Jawwal Pay<i>✦</i></span><span>تيم ليدر<i>✦</i></span><span>مؤسسة فريق<i>✦</i></span><span>مبيعات جوال<i>✦</i></span>
+</div></div>
+
+<div class="wrap head rv">
+  <span class="eyebrow">الرحلة</span>
+  <h2>خمسة فصول</h2>
+  <p>انزل بالصفحة والفصول بتمشي معك.</p>
+</div>
+
+<section class="hs" id="hs">
+  <div class="sticky">
+    <div class="label"><span id="chapName">الفصل 1 من 5</span><span class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="track" id="track">
+
+      <article class="chap">
+        <div class="txt">
+          <span class="k">الموسم 12 · 2021</span>
+          <h3>البداية والميدان</h3>
+          <ul>
+            <li>انضممت لبرنامج أنا جوال، الدفعة 12، وتدربت عملياً على يد موظفي جوال</li>
+            <li>نظمنا فعاليات داخل الجامعة، منها «شجع كأنك في الملعب»</li>
+            <li>حملات Jawwal Pay مع الجمهور في المولات والمعارض</li>
+            <li>كتبت عن الفريق في مجلة «نبض الإسراء»، واستضافني راديو زمن 90.60 FM</li>
+          </ul>
+          <div class="callout"><b>الأول</b><span>فريقنا على مستوى جامعات غزة، وختام الدفعة بحفل وتكريم من جوال</span></div>
+        </div>
+        <div class="pic"><img src="img/first-place.jpg" alt="مرام في حفل ختام الدفعة 12 تحمل شيك المركز الأول"><div class="mini"><img src="img/radio.jpg" alt="إعلان استضافة مرام في برنامج هشتاج شباب"></div></div>
+        <span class="num" aria-hidden="true">01</span>
+      </article>
+
+      <article class="chap">
+        <div class="txt">
+          <span class="k">بعد الدفعة 12</span>
+          <h3>مشرفة ومدربة Jawwal Pay</h3>
+          <ul>
+            <li>دربت المشاركين من كل الجامعات والفرق المنافسة على المحفظة</li>
+            <li>عملت في خدمة العملاء وحضرت فعاليات البرنامج</li>
+            <li>فوزي موزي والمدرسة الأمريكية، معارض الصناعات وGITEX، ومولات مترو وكارفور والأندلسية</li>
+            <li>مديرة حساب مؤسسة أكورد لتيسير الزواج بخصوص محفظة Jawwal Pay</li>
+          </ul>
+        </div>
+        <div class="pic"><img src="img/tent.jpg" alt="فريق أنا جوال في فعالية داخل خيمة"><div class="mini"><img src="img/trainers.jpg" alt="مرام مع مدربات البرنامج"></div></div>
+        <span class="num" aria-hidden="true">02</span>
+      </article>
+
+      <article class="chap">
+        <div class="txt">
+          <span class="k">الموسم 13</span>
+          <h3>تيم ليدر</h3>
+          <ul>
+            <li>جُدّد عقدي للموسم 13 وقدت الفريق</li>
+            <li>تابعت إنجاز المهام مع كل أعضاء الفريق</li>
+            <li>كتبت تقارير الفعاليات والكشوفات المالية</li>
+            <li>شهادتان من برنامج أنا جوال عن الموسمين 12 و13</li>
+          </ul>
+          <div class="callout"><b>من 20 إلى 80</b><span>حجم الفريق كبر أربع مرات</span></div>
+        </div>
+        <div class="pic"><img src="img/season13.jpg" alt="فريق أنا جوال بالزي الرسمي"></div>
+        <span class="num" aria-hidden="true">03</span>
+      </article>
+
+      <article class="chap">
+        <div class="txt">
+          <span class="k">بعد الحرب</span>
+          <h3>أسست الفريق من جديد</h3>
+          <ul>
+            <li>بعد التخرج وانتهاء الحرب، أسست الفريق بنفسي</li>
+            <li>جمعت شباب وصبايا أنا جوال من كل الجامعات وعلى مستوى الموسمين</li>
+            <li>كنت المنسقة بين الفريق وجوال</li>
+            <li>فعاليات ترفيه للأطفال، وتهنئة أوائل التوجيهي</li>
+          </ul>
+        </div>
+        <div class="pic"><img src="img/after-war.jpg" alt="خريجو أنا جوال أمام جدار البرنامج الملون"></div>
+        <span class="num" aria-hidden="true">04</span>
+      </article>
+
+      <article class="chap">
+        <div class="txt">
+          <span class="k">اليوم</span>
+          <h3>مبيعات جوال</h3>
+          <ul>
+            <li>قُبلت في عقد Go Professional مع جوال بعد مقابلة</li>
+            <li>أعمل حالياً موظفة مبيعات في معرض الجلاء الرئيسي</li>
+          </ul>
+          <div class="callout"><b>التالي؟</b><span>العودة لأنا جوال من جهة التسويق</span></div>
+        </div>
+        <div class="pic"><img src="img/today.jpg" alt="فريق مبيعات جوال في المعرض"></div>
+        <span class="num" aria-hidden="true">05</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="grow" id="grow">
+  <div class="sticky">
+    <div class="in">
+      <div>
+        <span class="eyebrow">القيادة بالأرقام</span>
+        <div class="count" id="cnt">80</div>
+        <h2>عضواً في الفريق</h2>
+        <p>بدأ الفريق بعشرين عضواً، وكبر حتى صار ثمانين. كل نقطة هنا شخص.</p>
+      </div>
+      <div class="people" id="people" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<div class="gal" aria-label="صور من الميدان"><div class="row" id="gal">
+  <figure style="--r:-3deg"><img src="img/g1.jpg" alt="تدريب في مكاتب جوال"></figure>
+  <figure style="--r:2deg"><img src="img/g3.jpg" alt="ركن Jawwal Pay في فعالية"></figure>
+  <figure style="--r:-2deg"><img src="img/field.jpg" alt="مرام تعرّف عميلاً على المحفظة في مول"></figure>
+  <figure style="--r:3deg"><img src="img/g4.jpg" alt="مرام تستلم تكريماً من جوال"></figure>
+  <figure style="--r:-2deg"><img src="img/g5.jpg" alt="مقال مجلة نبض الإسراء عن الفريق"></figure>
+  <figure style="--r:2deg"><img src="img/g2.jpg" alt="اجتماع الفريق في جوال"></figure>
+</div></div>
+
+<section class="wrap">
+  <div class="head rv" style="padding-top:90px">
+    <span class="eyebrow">لماذا أنا</span>
+    <h2>أعرف البرنامج من كل جوانبه</h2>
+  </div>
+  <div class="bento">
+    <div class="tile t1 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/></svg></span><h3>من الداخل</h3><p>كنت مشاركة، ومدربة، وتيم ليدر، ومؤسسة فريق.</p></div>
+    <div class="tile t2 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span><h3>الجامعات</h3><p>علاقات مع شباب وصبايا من كل الجامعات على مستوى موسمين.</p></div>
+    <div class="tile t3 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l14-6v14L3 13v-2zM17 9a3 3 0 0 1 0 6M7 13v5"/></svg></span><h3>الميدان</h3><p>فعاليات ومولات ومعارض وحملات Jawwal Pay.</p></div>
+    <div class="tile t4 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></span><h3>الكتابة والإعلام</h3><p>توثيق النشاط، وكتابة التقارير والكشوفات، والحضور الإذاعي.</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head rv" style="padding-top:110px">
+    <span class="eyebrow">أفكار للموسم الجديد</span>
+    <h2>كيف أخدم البرنامج بعد عودته</h2>
+  </div>
+  <div class="ideas">
+    <div class="idea rv"><span class="n">01</span><div><h3>سفراء من الخريجين</h3><p>خريجو الموسمين 12 و13 جاهزون ليكونوا مدربين وسفراء للدفعة الجديدة.</p></div></div>
+    <div class="idea rv"><span class="n">02</span><div><h3>جاهزية قبل الميدان</h3><p>تدريب كل فريق جامعي على Jawwal Pay قبل النزول للميدان.</p></div></div>
+    <div class="idea rv"><span class="n">03</span><div><h3>الجامعة والملعب</h3><p>ربط فعاليات الجامعات برعايات جوال الرياضية، مثل «شجع كأنك في الملعب».</p></div></div>
+    <div class="idea rv"><span class="n">04</span><div><h3>متابعة بالأرقام</h3><p>تقرير دوري للقسم عن الفعاليات والوصول والمصاريف.</p></div></div>
+  </div>
+</section>
+
+<section class="thanks wrap rv">
+  <h2>شكراً</h2>
+  <div class="k">تعلمت من</div>
+  <div class="names"><span>محمد الشرفا (أبو يحيى)</span><span>محمد العواودة</span><span>محمد رضوان</span><span>ريهام ورؤى</span><span>خالد</span></div>
+</section>
+<footer>مرام نوفل · خريجة برنامج أنا جوال، الموسمان 12 و13</footer>
+</main>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // duplicate marquee rows for a seamless loop
+  ['mq','gal'].forEach(id=>{const r=document.getElementById(id); r.innerHTML += r.innerHTML; r.querySelectorAll('img').forEach((im,i)=>{ if(i>=r.querySelectorAll('img').length/2) im.alt=''; });});
+
+  // 80 people dots
+  const people = document.getElementById('people');
+  for(let i=0;i<80;i++){ const d=document.createElement('i'); if(i<20) d.className='seed'; people.appendChild(d); }
+  const dots = people.children;
+  const cnt = document.getElementById('cnt');
+  function setCount(n){ cnt.textContent = n; for(let i=0;i<80;i++){ dots[i].classList.toggle('on', i>=20 && i<n); } }
+  setCount(80);
+
+  // 3D tilt on hero photo
+  const tilt = document.getElementById('tilt'); const card = tilt.querySelector('.card');
+  if(!reduce){
+    tilt.addEventListener('pointermove', e=>{ const r=tilt.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; card.style.setProperty('--ry',(x*18)+'deg'); card.style.setProperty('--rx',(-y*14)+'deg'); });
+    tilt.addEventListener('pointerleave', ()=>{ card.style.removeProperty('--ry'); card.style.removeProperty('--rx'); });
+  }
+
+  // spotlight tiles
+  document.querySelectorAll('.tile').forEach(t=>t.addEventListener('pointermove',e=>{const r=t.getBoundingClientRect(); t.style.setProperty('--x',(e.clientX-r.left)+'px'); t.style.setProperty('--y',(e.clientY-r.top)+'px');}));
+
+  // scroll-driven: progress bar, horizontal chapters, people counter
+  const prog=document.getElementById('prog'), hs=document.getElementById('hs'), track=document.getElementById('track'), grow=document.getElementById('grow');
+  const dotEls=[...document.querySelectorAll('#dots i')], chapName=document.getElementById('chapName');
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  let ticking=false;
+  function frame(){
+    ticking=false;
+    const se=document.scrollingElement; const max=se.scrollHeight-innerHeight;
+    prog.style.setProperty('--p', max>0 ? se.scrollTop/max : 0);
+    if(reduce) return;
+    // chapters
+    const hr=hs.getBoundingClientRect(); const span=hs.offsetHeight-innerHeight;
+    const p=clamp(-hr.top/span,0,1);
+    const over=Math.max(0, track.scrollWidth-innerWidth);
+    track.style.transform='translateX('+(p*over)+'px)';
+    const idx=Math.min(4,Math.round(p*4));
+    dotEls.forEach((d,i)=>d.classList.toggle('on',i<=idx));
+    chapName.textContent='الفصل '+(idx+1)+' من 5';
+    // people counter
+    const gr=grow.getBoundingClientRect(); const gs=grow.offsetHeight-innerHeight;
+    if(gr.top<innerHeight && gr.bottom>0){ const q=clamp(-gr.top/(gs*.8),0,1); setCount(Math.round(20+60*q)); }
+  }
+  addEventListener('scroll',()=>{ if(!ticking){ticking=true;requestAnimationFrame(frame);} },{passive:true});
+  addEventListener('resize',frame); frame();
+
+  // ambient glow blobs
+  const c=document.getElementById('glow'), g=c.getContext('2d');
+  function size(){ c.width=innerWidth; c.height=innerHeight; } size(); addEventListener('resize',size);
+  const blobs=[{x:.8,y:.2,r:.45,c:'123,201,67',s:.00013},{x:.15,y:.7,r:.4,c:'217,243,110',s:.0001},{x:.5,y:1,r:.5,c:'30,110,60',s:.00008}];
+  function draw(t){
+    g.clearRect(0,0,c.width,c.height);
+    blobs.forEach((b,i)=>{ const x=(b.x+Math.sin(t*b.s+i)*.08)*c.width, y=(b.y+Math.cos(t*b.s*1.3+i)*.08)*c.height, r=b.r*Math.max(c.width,c.height);
+      const gr=g.createRadialGradient(x,y,0,x,y,r); gr.addColorStop(0,'rgba('+b.c+',.16)'); gr.addColorStop(1,'rgba('+b.c+',0)'); g.fillStyle=gr; g.fillRect(0,0,c.width,c.height); });
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
