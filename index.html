@@ -175,9 +175,6 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before{animation:none!important;transition:none!important}
-  .hs{height:auto}.hs .sticky{position:static;height:auto;padding:20px 0}
-  .track{overflow-x:auto;transform:none!important;padding-bottom:20px}
-  .grow{height:auto}.grow .sticky{position:static;height:auto;padding:60px 0}
 }
 </style>
 </head>
@@ -397,9 +394,8 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
     prog.style.setProperty('--p', max>0 ? se.scrollTop/max : 0);
     // people counter (scroll-linked, works for everyone)
     const gr=grow.getBoundingClientRect(); const gs=Math.max(1, grow.offsetHeight-innerHeight);
-    if(gr.top<innerHeight && gr.bottom>0){ const q=reduce ? clamp((innerHeight-gr.top)/(innerHeight+grow.offsetHeight*.5),0,1) : clamp(-gr.top/(gs*.8),0,1); setCount(Math.round(20+60*q)); }
-    if(reduce) return;
-    // chapters
+    if(gr.top<innerHeight && gr.bottom>0){ const q=clamp(-gr.top/(gs*.8),0,1); setCount(Math.round(20+60*q)); }
+    // chapters (scroll-linked: moves only when the viewer scrolls)
     const hr=hs.getBoundingClientRect(); const span=hs.offsetHeight-innerHeight;
     const p=clamp(-hr.top/span,0,1);
     const over=Math.max(0, track.scrollWidth-innerWidth);
@@ -412,7 +408,7 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
   addEventListener('resize',frame); frame();
   // hero stat count-up (20 -> 80)
   const heroNum=document.querySelector('[data-count]');
-  if(heroNum && !reduce){ const t0=performance.now(), dur=1400;
+  if(heroNum){ const t0=performance.now(), dur=1400;
     (function step(t){ const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3); heroNum.textContent=Math.round(20+60*e); if(k<1) requestAnimationFrame(step); })(t0); }
 
   // ambient glow blobs
