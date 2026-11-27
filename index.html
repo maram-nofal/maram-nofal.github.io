@@ -148,6 +148,20 @@ main{position:relative;z-index:1}
 .names span{padding:10px 20px;border-radius:999px;background:var(--forest);border:1px solid rgba(123,201,67,.3);font-weight:500}
 footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
 
+/* certificates */
+.certs{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px}
+.cert{margin:0;cursor:zoom-in;background:none;border:0;padding:0;text-align:inherit;color:inherit;font:inherit}
+.cert .frame{border-radius:22px;overflow:hidden;background:#fff;padding:10px;transform:rotate(var(--r));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(123,201,67,.35)}
+.cert:hover .frame,.cert:focus-visible .frame{transform:rotate(0) scale(1.03);box-shadow:0 40px 80px -20px rgba(0,0,0,.8),0 0 60px -10px rgba(123,201,67,.55)}
+.cert img{width:100%;aspect-ratio:1.4/1;object-fit:cover;border-radius:14px}
+.cert .cap{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:16px}
+.cert .cap b{font-family:var(--display);font-weight:400;font-size:28px;color:#fff}
+.cert .cap span{color:var(--green);font-weight:700;font-variant-numeric:tabular-nums}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(3,12,8,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;place-items:center;padding:20px;cursor:zoom-out}
+.lb.open{display:grid}
+.lb img{max-width:min(1100px,100%);max-height:90svh;border-radius:16px;box-shadow:0 40px 100px rgba(0,0,0,.8)}
+@media (max-width:860px){.certs{grid-template-columns:1fr}}
+
 /* scroll-driven reveal (only where supported; content shows normally elsewhere) */
 @supports (animation-timeline: view()){
   .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
@@ -315,6 +329,19 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
   </div>
 </section>
 
+<section class="wrap">
+  <div class="head rv" style="padding-top:90px">
+    <span class="eyebrow">تقدير من جوال</span>
+    <h2>شهادتان من أنا جوال</h2>
+    <p>تقديراً للجهود في البرنامج التدريبي خلال الموسمين. اضغط على الشهادة لتكبيرها.</p>
+  </div>
+  <div class="certs">
+    <button class="cert rv" type="button" data-full="img/cert12.jpg"><div class="frame" style="--r:-2deg"><img src="img/cert12.jpg" alt="شهادة أنا جوال لمرام أكرم محمود نوفل للعام 2021-2022"></div><div class="cap"><b>الموسم 12</b><span>2021 – 2022</span></div></button>
+    <button class="cert rv" type="button" data-full="img/cert13.jpg"><div class="frame" style="--r:2deg"><img src="img/cert13.jpg" alt="شهادة أنا جوال لمرام أكرم نوفل للعام 2022-2023"></div><div class="cap"><b>الموسم 13</b><span>2022 – 2023</span></div></button>
+  </div>
+</section>
+<div class="lb" id="lb" role="dialog" aria-label="صورة الشهادة"><img id="lbImg" alt=""></div>
+
 <div class="gal" aria-label="صور من الميدان"><div class="row" id="gal">
   <figure style="--r:-3deg"><img src="img/g1.jpg" alt="تدريب في مكاتب جوال"></figure>
   <figure style="--r:2deg"><img src="img/g3.jpg" alt="ركن Jawwal Pay في فعالية"></figure>
@@ -411,6 +438,11 @@ footer{padding:30px 0 50px;text-align:center;color:var(--dim);font-size:14px}
   if(heroNum){ const t0=performance.now(), dur=1400;
     (function step(t){ const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3); heroNum.textContent=Math.round(20+60*e); if(k<1) requestAnimationFrame(step); })(t0); }
 
+  // certificate lightbox
+  const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
+  document.querySelectorAll('.cert').forEach(c=>c.addEventListener('click',()=>{ lbImg.src=c.dataset.full; lbImg.alt=c.querySelector('img').alt; lb.classList.add('open'); }));
+  lb.addEventListener('click',()=>lb.classList.remove('open'));
+  addEventListener('keydown',e=>{ if(e.key==='Escape') lb.classList.remove('open'); });
   // ambient glow blobs
   const c=document.getElementById('glow'), g=c.getContext('2d');
   function size(){ c.width=innerWidth; c.height=innerHeight; } size(); addEventListener('resize',size);
